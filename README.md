@@ -1,7 +1,8 @@
 # GameProgrammingFinal
+
 Game Programming Final Template
 
-Game Name:  
+Game Name: Dimension Kid
 Description Short:  
 Description Long:
 
