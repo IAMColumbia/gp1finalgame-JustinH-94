@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: cd1b444454404974c9155a333c2d8a18
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - WhiteSprite: {fileID: 21300000, guid: 0402ee466a518524c87cdc3cc7f510fa, type: 3}
+  - BlackSprite: {fileID: 21300000, guid: 16452b1f6479e4e44be24a4670771000, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
