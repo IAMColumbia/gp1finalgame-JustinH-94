@@ -8,15 +8,13 @@ public class Bound : MonoBehaviour
     Vector2 screenBound;
     float objWidth;
     float objHeight;
-    GameObject start;
     static Vector3 bottomLeft;
     static Vector3 topRight;
     static Rect cameraRect;
-    public static bool playerFell = false;
     // Start is called before the first frame update
     void Start()
     {
-        start = GameObject.FindGameObjectWithTag("StartPosition");
+        
         screenBound = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
         objWidth = transform.GetComponent<SpriteRenderer>().bounds.extents.x;
         objHeight = transform.GetComponent<SpriteRenderer>().bounds.extents.y;
@@ -40,7 +38,11 @@ public class Bound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HitSideBound();
+        if (!SwitchLvl.isFinalLvl)
+        {
+            HitSideBound();
+        }
+        
         HitBottomBound();
     }
     void HitSideBound()
@@ -54,14 +56,7 @@ public class Bound : MonoBehaviour
     {
         if(transform.position.y <= cameraRect.yMin)
         {
-            transform.position = start.transform.position;
-            if (!SwitchLvl.isTutorial)
-            {
-                PlayerManager.PlayerLives--;
-            }
-            
-            playerFell = true;
-            PlayerManager.AppleCount = 0;
+            PlayerCollide.PlayerDead = true;
         }
     }
 }

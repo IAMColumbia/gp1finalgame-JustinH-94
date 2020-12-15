@@ -9,6 +9,7 @@ public class TextScript : MonoBehaviour
     public TextMeshProUGUI enterDoor;
     public TextMeshProUGUI AppleCounter;
     public TextMeshProUGUI LivesCounter;
+    public GameObject DoorText;
     public Dimension_Switch dSwitch;
     GameObject player;
     GameObject Door;
@@ -17,8 +18,6 @@ public class TextScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         Door = GameObject.FindGameObjectWithTag("Door");
-        //enterDoor = gameObject.GetComponent<TextMeshProUGUI>();
-        //AppleCounter = gameObject.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame

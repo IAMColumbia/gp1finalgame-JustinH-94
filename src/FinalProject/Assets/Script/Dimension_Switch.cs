@@ -7,10 +7,6 @@ public class Dimension_Switch : MonoBehaviour
     public static bool switched = false;
     public bool dSwitched = false;
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()

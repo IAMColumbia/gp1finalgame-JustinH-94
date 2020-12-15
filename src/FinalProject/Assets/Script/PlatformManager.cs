@@ -7,10 +7,8 @@ public class PlatformManager : MonoBehaviour
     Collider2D col;
     GameObject scene;
     lvlManager lvl;
-    public GameObject[] platformInvis;
-    public GameObject[] changePlatColor;
 
-    bool invisOn = false;
+    public GameObject[] changePlatColor;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +21,6 @@ public class PlatformManager : MonoBehaviour
     void Update()
     {
         setCollider();
-        InvisiblePlat();
     }
 
     void setCollider()
@@ -43,19 +40,6 @@ public class PlatformManager : MonoBehaviour
         else if(lvlManager.currentSceneColor == "white" && gameObject.tag == "BlackPlatform")
         {
             this.col.enabled = true;
-        }
-    }
-
-    void InvisiblePlat()
-    {
-        if (Input.GetKey(KeyCode.LeftShift))
-            invisOn = true;
-        if (invisOn)
-        {
-            for(int i = 0; i < platformInvis.Length; i++)
-            {
-                platformInvis[i].transform.position = new Vector3(transform.position.x, transform.position.y +100, transform.position.z);
-            }
         }
     }
 }

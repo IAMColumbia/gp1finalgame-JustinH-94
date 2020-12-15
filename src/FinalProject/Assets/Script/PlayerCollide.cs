@@ -9,11 +9,15 @@ public class PlayerCollide : MonoBehaviour
 
     public List<GameObject> BlackAppleArr;
     public List<GameObject> WhiteAppleArr;
+    public GameObject BottomScreen;
+    public GameObject SpikedWall;
     public static bool CollideDoor;
     public static bool CollideApple;
+    public static bool PlayerDead = false;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        SpikedWallCol(collision);
         DoorCollision(collision);
         AppleCollision(collision);
         bottomCollision(collision);
@@ -57,7 +61,7 @@ public class PlayerCollide : MonoBehaviour
 
     void bottomCollision(Collider2D collision)
     {
-        if(collision.gameObject.tag == "bottomScreen")
+        if(collision.gameObject==BottomScreen || PlayerDead)
         {
             for (int i = 0; i < RemovedBlackApple.Count; i++)
             {
@@ -69,6 +73,14 @@ public class PlayerCollide : MonoBehaviour
             }
             RemovedWhiteApple.Clear();
             RemovedBlackApple.Clear();
+        }
+    }
+
+    void SpikedWallCol(Collider2D collision)
+    {
+        if(collision.gameObject == SpikedWall)
+        {
+            PlayerDead = true;
         }
     }
 }

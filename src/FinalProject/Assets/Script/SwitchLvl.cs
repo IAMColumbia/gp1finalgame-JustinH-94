@@ -6,11 +6,14 @@ public class SwitchLvl : MonoBehaviour
 {
     Scene currentScene;
     public static bool isTutorial;
+    public static bool isFinalLvl;
     private void Start()
     {
         PlayerCollide.CollideDoor = false;
         currentScene = SceneManager.GetActiveScene();
         Tutorial();
+        FinalLvl();
+
     }
 
     void Tutorial()
@@ -18,10 +21,25 @@ public class SwitchLvl : MonoBehaviour
         if (currentScene.name == "Tutorial")
             isTutorial = true;
     }
+    void FinalLvl()
+    {
+        if (currentScene.name == "Final_Level")
+            isFinalLvl = true;
+    }
     // Update is called once per frame
     void Update()
     {
         switchLvl();
+        GameOver();
+    }
+
+    void GameOver()
+    {
+        if (PlayerManager.PlayerLives == 0)
+        {
+            isFinalLvl = false;
+            SceneManager.LoadScene("EndState");
+        }
     }
 
     void switchLvl()
@@ -36,6 +54,14 @@ public class SwitchLvl : MonoBehaviour
             {
                 Level2();
             }
+            if(currentScene.name == "Level_2")
+            {
+                FinalLevel();
+            }
+            if (currentScene.name == "Final_Level")
+            {
+                EndGameScene();
+            }
         }    
     }
 
@@ -43,10 +69,9 @@ public class SwitchLvl : MonoBehaviour
     {
         if (Input.GetKey("enter") || Input.GetKey("return"))
         {
-            SceneManager.LoadScene("Level_1");
             isTutorial = false;
-        }
-            
+            SceneManager.LoadScene("Level_1");  
+        }     
     }
 
     void Level2()
@@ -54,7 +79,23 @@ public class SwitchLvl : MonoBehaviour
         if (Input.GetKey("enter") || Input.GetKey("return"))
         {
             SceneManager.LoadScene("Level_2");
-            isTutorial = false;
+        }
+    }
+
+    void FinalLevel()
+    {
+        if (Input.GetKey("enter") || Input.GetKey("return"))
+        {
+            SceneManager.LoadScene("Final_Level");
+        }
+    }
+
+    void EndGameScene()
+    {
+        if (Input.GetKey("enter") || Input.GetKey("return"))
+        {
+            isFinalLvl = false;
+            SceneManager.LoadScene("EndState");
         }
     }
 }

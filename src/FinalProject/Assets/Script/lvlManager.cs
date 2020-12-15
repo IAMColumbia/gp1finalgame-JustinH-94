@@ -9,6 +9,8 @@ public class lvlManager : MonoBehaviour
     public string startScene;
     public static string currentSceneColor;
     public PlayerCollide playerCol;
+    public PlayerManager pm;
+    public SpikedWall wall;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class lvlManager : MonoBehaviour
     void Update()
     {
         changeBackGround();
+        SceneReset();
     }
 
     void setApples()
@@ -49,7 +52,6 @@ public class lvlManager : MonoBehaviour
             }
             Dimension_Switch.switched = false;
         }
-        SceneReset();
     }
 
     void BlackAppleActive()
@@ -76,12 +78,23 @@ public class lvlManager : MonoBehaviour
         }
     }
 
-    void SceneReset()
+    public void SceneReset()
     {
-        if (Bound.playerFell)
+        if (PlayerCollide.PlayerDead)
         {
+            pm.Respawn();
             Start();
-            Bound.playerFell = false;
+            PlayerManager.AppleCount = 0;
+            if (!SwitchLvl.isTutorial)
+            {
+                PlayerManager.PlayerLives--;
+            }
+            if (SwitchLvl.isFinalLvl)
+            {
+                wall.PositionReset();
+            }
+            PlayerCollide.PlayerDead = false;
         }
+        
     }
 }

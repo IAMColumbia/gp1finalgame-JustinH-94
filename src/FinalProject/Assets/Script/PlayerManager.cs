@@ -14,11 +14,15 @@ public class PlayerManager : MonoBehaviour
     lvlManager lvl;
     public Sprite startSprite;
     public Sprite WhiteSprite, BlackSprite;
+    public SpikedWall wall;
+    GameObject start;
     public static int PlayerLives = 3;
     public static int AppleCount;
+
     // Start is called before the first frame update
     void Start()
     {
+        start = GameObject.FindGameObjectWithTag("StartPosition");
         scene = GameObject.Find("Scene");
         lvl = scene.GetComponent<lvlManager>();
         //PlayerLives = 3;
@@ -29,8 +33,8 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         CurrentScene();
-        //PlayerFell();
-        switch(state)
+ 
+        switch (state)
         {
             case State.black:
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = BlackSprite;
@@ -39,7 +43,7 @@ public class PlayerManager : MonoBehaviour
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = WhiteSprite;
                 break;
         }
-        
+
     }
 
     void CurrentScene()
@@ -50,11 +54,8 @@ public class PlayerManager : MonoBehaviour
             state = State.black;
     }
 
-    void PlayerFell()
+    public void Respawn()
     {
-        if (Bound.playerFell)
-        {
-            PlayerLives--;
-        }
+        transform.position = start.transform.position;
     }
 }

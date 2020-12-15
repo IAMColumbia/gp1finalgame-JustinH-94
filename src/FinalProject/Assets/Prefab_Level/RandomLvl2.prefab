@@ -840,6 +840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9bbcc4368e25d4d9b78388a7c267ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changePlatColor: []
 --- !u!61 &7116414514884515323
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -987,6 +988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9bbcc4368e25d4d9b78388a7c267ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changePlatColor: []
 --- !u!1 &7116414515588940564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9bbcc4368e25d4d9b78388a7c267ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changePlatColor: []
 --- !u!61 &7761530872990373037
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1510,9 +1513,9 @@ RectTransform:
   m_Father: {fileID: 8655010671469661329}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 150}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -124}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8655010669758637569
@@ -1672,6 +1675,7 @@ MonoBehaviour:
   enterDoor: {fileID: 8655010669758637568}
   AppleCounter: {fileID: 8655010671366066238}
   LivesCounter: {fileID: 8655010670870859794}
+  DoorText: {fileID: 0}
   dSwitch: {fileID: 8655010671520680338}
 --- !u!114 &8655010669804437941
 MonoBehaviour:
@@ -1689,6 +1693,8 @@ MonoBehaviour:
   startColor: {r: 0, g: 0, b: 0, a: 0}
   startScene: black
   playerCol: {fileID: 8655010671520680350}
+  pm: {fileID: 8655010671520680339}
+  wall: {fileID: 0}
 --- !u!114 &8655010669804437940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1918,6 +1924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9bbcc4368e25d4d9b78388a7c267ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changePlatColor: []
 --- !u!1 &8655010670870859792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1950,9 +1957,9 @@ RectTransform:
   m_Father: {fileID: 8655010671469661329}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -381, y: 246}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 101, y: -28}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8655010670870859795
@@ -2083,9 +2090,9 @@ RectTransform:
   m_Father: {fileID: 8655010671469661329}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 380, y: 248}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -102, y: -26}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8655010671366066239
@@ -2403,6 +2410,8 @@ MonoBehaviour:
   WhiteAppleArr:
   - {fileID: 7116414515634377251}
   - {fileID: 6117858604360752896}
+  BottomScreen: {fileID: 7869406315261860613}
+  SpikedWall: {fileID: 0}
 --- !u!114 &8655010671520680349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2491,6 +2500,7 @@ MonoBehaviour:
   startSprite: {fileID: 21300000, guid: 0402ee466a518524c87cdc3cc7f510fa, type: 3}
   WhiteSprite: {fileID: 21300000, guid: 0402ee466a518524c87cdc3cc7f510fa, type: 3}
   BlackSprite: {fileID: 21300000, guid: 16452b1f6479e4e44be24a4670771000, type: 3}
+  wall: {fileID: 0}
 --- !u!1 &8655010671521142248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2695,6 +2705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9bbcc4368e25d4d9b78388a7c267ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changePlatColor: []
 --- !u!1001 &8562262531566827471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2764,6 +2775,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2532d622c9a21ca4fb006f067a46a01f, type: 3}
+--- !u!1 &7869406315261860613 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2010570475126353098, guid: 2532d622c9a21ca4fb006f067a46a01f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8562262531566827471}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7869406315261860619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2010570475126353092, guid: 2532d622c9a21ca4fb006f067a46a01f,
